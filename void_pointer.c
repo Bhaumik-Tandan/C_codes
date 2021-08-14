@@ -11,5 +11,7 @@ main()
     p[2]=str;
     float f=34.4;
     p[3]=&f;
-    printf("%d %c %s %f",*(int *)p[0],*(char *)p[1],p[2],*(float *)p[3]);
+    printf("%d %c %s %f\n",*(int *)p[0],*(char *)p[1],p[2],*(float *)p[3]);
+    void *d=3.4;
+    printf("%f",(float*)d);
 }
