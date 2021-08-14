@@ -9,5 +9,7 @@ main()
     p[1]=&c;
     char str[]="cecf";
     p[2]=str;
-    printf("%d %c %s",*(int *)p[0],*(char *)p[1],p[2]);
+    float f=34.4;
+    p[3]=&f;
+    printf("%d %c %s %f",*(int *)p[0],*(char *)p[1],p[2],*(float *)p[3]);
 }
