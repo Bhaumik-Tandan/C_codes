@@ -13,8 +13,6 @@ main()
     scanf("%d",&m[j][i]);
     }
     float c[r][r];
-    // printf("%d",det(r,m));
     inv(r,m,c);
-    printfi(r,m);
     printff(r,c);
 }
