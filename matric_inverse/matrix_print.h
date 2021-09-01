@@ -16,4 +16,4 @@ void printfi(int n,int m[n][n])
     printf("\n");
     }
 }
-
+#define print(a,b) _Generic((b), int(*)[]: printfi, float(*)[]: printff)((a), (b))

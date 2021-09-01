@@ -14,5 +14,5 @@ main()
     }
     float c[r][r];
     inv(r,m,c);
-    printff(r,c);
+    print(r,c);
 }
