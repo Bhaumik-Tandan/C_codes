@@ -1,0 +1,2 @@
+5. Pass a function to a 1D array, 2D array and 3D array using pointer reference AND
+write three programs separetely(User input you have to take, NOT STATIC INPUT)
