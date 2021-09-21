@@ -1,20 +1,55 @@
 #include <stdio.h>
 #include <termios.h>
+#include <unistd.h>
 
-int main(int argc, char *argv[])
+//https://cboard.cprogramming.com/c-programming/43910-user-input-echo-off.html
+int echo(int on)
 {
-    printf("Enter password: ");
+    struct termios t;
+    if (!on)
+        t.c_lflag &= ~(ECHO | ECHOE | ECHOK | ECHONL);
+    else
+        t.c_lflag |= (ECHO | ECHOE | ECHOK | ECHONL);
 
-    struct termios term;
-    tcgetattr(fileno(stdin), &term);
+    if (tcsetattr(STDIN_FILENO, TCSANOW, &t) == -1)
+        return -1;
+    
+}
 
-    term.c_lflag &= ~ECHO;
 
-    char passwd[32];
-    fgets(passwd, sizeof(passwd), stdin);
+int pad()
+{
+    char a[10];
+       int i=0;
+       echo(0);
+       while(1)
+       {
+           scanf("%c",a+i);
+           if(a[i++]=='\n')
+           break;
+           printf("*");
+       }
+       a[i]=0;
+       printf("%s",a);
+       echo(1);
+}
 
-    term.c_lflag |= ECHO;
-    tcsetattr(fileno(stdin), 0, &term);
 
-    printf("\nYour password is: %s\n", passwd);
+int main()
+{
+    terminate(0);
+    //    char a[10];
+    //    int i=0;
+    //    echo(0);
+    //    while(1)
+    //    {
+    //        scanf("%c",a+i);
+    //        if(a[i++]=='\n')
+    //        break;
+    //        printf("*",a);
+    //    }
+    //    a[i]=0;
+    //    printf("%s",a);
+    //    echo(1);
+    //    pad();
 }
